@@ -19,3 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
       window.history.replaceState({}, document.title, '/contact');
     }
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.querySelector('.contact-form');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        // Check if reCAPTCHA was completed
+        const recaptchaResponse = grecaptcha.getResponse();
+        
+        // If reCAPTCHA was not completed
+        if (recaptchaResponse.length === 0) {
+          e.preventDefault();
+          
+          // Check if error message already exists
+          let errorMsg = document.querySelector('.recaptcha-error');
+          
+          if (!errorMsg) {
+            // Create error message
+            errorMsg = document.createElement('div');
+            errorMsg.className = 'recaptcha-error';
+            errorMsg.textContent = 'Please complete the reCAPTCHA verification.';
+            
+            // Insert error message after reCAPTCHA
+            const recaptchaDiv = document.querySelector('.g-recaptcha');
+            recaptchaDiv.parentNode.insertBefore(errorMsg, recaptchaDiv.nextSibling);
+          }
+        }
+      });
+    }
+  });

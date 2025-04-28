@@ -3,7 +3,8 @@
   <p>Feel free to reach out using the form below or through my social media accounts.</p>
   
   <div class="contact-container">
-    <form class="contact-form" action="/contact" method="POST">
+    <!-- Formspree Form - Replace YOUR_FORMSPREE_ENDPOINT with your actual endpoint -->
+    <form class="contact-form" action="https://formspree.io/f/mvgageon" method="POST">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -24,15 +25,22 @@
         <textarea id="message" name="message" rows="5" required></textarea>
       </div>
       
+      <!-- Optional: Add a honeypot field to prevent spam -->
+      <input type="text" name="_gotcha" style="display:none">
+      
+      <div class="form-group">
+        <div class="g-recaptcha" data-sitekey="6Lf_VCcrAAAAAC81ZGT4fIag-EiEuFkX0CiozYsL"></div>
+    </div>
+      
       <button type="submit" class="btn">Send Message</button>
     </form>
     
     <div class="contact-info">
       <h3>Other Ways to Connect</h3>
       <ul>
-        <li> <a href="jdev8602@gmail.com"> Email</a></li>
-        <li> <a href="https://www.linkedin.com/in/jack-male-21369a257/"> LinkedIn</a> </li>
-        <li> <a href="https://github.com/jack24899?tab=repositories"> Github</a> </li>
+        <li><strong>Email:</strong> your.email@example.com</li>
+        <li><strong>LinkedIn:</strong> linkedin.com/in/yourprofile</li>
+        <li><strong>GitHub:</strong> github.com/yourusername</li>
       </ul>
     </div>
   </div>

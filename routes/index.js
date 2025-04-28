@@ -38,4 +38,12 @@ router.get('/contact', (req, res) => {
     res.redirect('/contact?success=true');
   });
 
+  // Thank you page route
+router.get('/thank-you', (req, res) => {
+  res.render('thank-you', {
+    title: 'Thank You - Message Received',
+    layout: 'main'
+  });
+});
+
 module.exports = router;
