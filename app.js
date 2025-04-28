@@ -20,8 +20,17 @@ app.use(express.json());
 // Routes
 app.use('/', require('./routes/index'));
 
+// 404 handler - must be the last route
+app.use((req, res) => {
+  res.status(404).render('404', {
+    title: 'Page Not Found',
+    layout: 'main'
+  });
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
 

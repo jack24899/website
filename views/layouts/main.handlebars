@@ -4,30 +4,155 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
-  <link rel="stylesheet" href="/css/style.css">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom styles - can override or add to Tailwind if needed -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, #f3f3f3, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #3490dc 0%, #6366f1 100%);
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">My Website</div>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+<body class="bg-gray-200 text-gray-800 flex flex-col min-h-screen">
+  <!-- Navigation -->
+  <header class="bg-gray-800 shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <div class="text-2xl font-bold gradient-text">Jack Male</div>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="p-2 rounded focus:outline-none focus:ring">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex space-x-8">
+        <li><a href="/" class="text-white hover:text-blue-600 font-medium transition duration-300">Home</a></li>
+        <li><a href="/about" class="text-white hover:text-blue-600 font-medium transition duration-300">About</a></li>
+        <li><a href="/contact" class="text-white hover:text-blue-600 font-medium transition duration-300">Contact</a></li>
       </ul>
     </nav>
+    
+    <!-- Mobile Navigation Menu (hidden by default) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-lg absolute w-full">
+      <ul class="px-4 py-2">
+        <li><a href="/" class="block py-2 hover:text-blue-600 transition duration-300">Home</a></li>
+        <li><a href="/about" class="block py-2 hover:text-blue-600 transition duration-300">About</a></li>
+        <li><a href="/contact" class="block py-2 hover:text-blue-600 transition duration-300">Contact</a></li>
+      </ul>
+    </div>
   </header>
 
-  <main>
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-8">
     {{{body}}}
   </main>
 
-  <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <div class="text-xl font-bold mb-2">Jack Male</div>
+          <p class="text-gray-400 text-sm">Software Engineer | Web Developer</p>
+        </div>
+        
+        <div class="flex space-x-4">
+          <a href="https://github.com/jack24899" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/jack-male-21369a257/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="mailto:jdev8602@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="mt-6 border-t border-gray-700 pt-4 text-sm text-center text-gray-400">
+        <p>&copy; 2025 Jack Male. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
-  
+
   <!-- reCAPTCHA v2 Script -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script src="/js/main.js"></script>
+  
+  <!-- Your custom JavaScript -->
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      
+      // reCAPTCHA validation
+      const contactForm = document.querySelector('.contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          const recaptchaResponse = grecaptcha.getResponse();
+          
+          if (recaptchaResponse.length === 0) {
+            e.preventDefault();
+            
+            let errorMsg = document.querySelector('.recaptcha-error');
+            
+            if (!errorMsg) {
+              errorMsg = document.createElement('div');
+              errorMsg.className = 'recaptcha-error text-red-500 text-sm mt-1';
+              errorMsg.textContent = 'Please complete the reCAPTCHA verification.';
+              
+              const recaptchaDiv = document.querySelector('.g-recaptcha');
+              recaptchaDiv.parentNode.insertBefore(errorMsg, recaptchaDiv.nextSibling);
+            }
+          }
+        });
+      }
+      
+      // Show success message if needed
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
+        const successMessage = document.createElement('div');
+        successMessage.className = 'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6';
+        successMessage.innerHTML = `
+          <strong class="font-bold">Success!</strong>
+          <span class="block sm:inline"> Your message has been sent successfully!</span>
+        `;
+        
+        const contactSection = document.querySelector('.contact');
+        if (contactSection) {
+          contactSection.insertBefore(successMessage, contactSection.firstChild);
+          window.history.replaceState({}, document.title, '/contact');
+        }
+      }
+    });
+  </script>
 </body>
 </html>

@@ -4,8 +4,8 @@ const router = express.Router();
 // Home page route
 router.get('/', (req, res) => {
   res.render('home', {
-    title: 'My Website - Home',
-    name: 'Your Name',
+    title: 'Jack Male - Software Engineer',
+    name: 'Jack Male',
     layout: 'main'
   });
 });
@@ -13,32 +13,32 @@ router.get('/', (req, res) => {
 // About page route
 router.get('/about', (req, res) => {
   res.render('about', {
-    title: 'My Website - About',
+    title: 'About Jack Male - Software Engineer',
     layout: 'main'
   });
 });
 
 // Contact page route - GET
 router.get('/contact', (req, res) => {
-    res.render('contact', {
-      title: 'My Website - Contact',
-      layout: 'main'
-    });
+  res.render('contact', {
+    title: 'Contact Jack Male - Software Engineer',
+    layout: 'main'
   });
-  
-  // Contact form submission - POST
-  router.post('/contact', (req, res) => {
-    // Here you would normally process the form data
-    // For example, send an email or save to database
-    const { name, email, subject, message } = req.body;
-    
-    console.log('Contact form submission:', { name, email, subject, message });
-    
-    // For now, just redirect back to the contact page with a success parameter
-    res.redirect('/contact?success=true');
-  });
+});
 
-  // Thank you page route
+// Contact form submission - POST
+router.post('/contact', (req, res) => {
+  // Here you would normally process the form data
+  // For example, send an email or save to database
+  const { name, email, subject, message } = req.body;
+  
+  console.log('Contact form submission:', { name, email, subject, message });
+  
+  // For now, just redirect back to the contact page with a success parameter
+  res.redirect('/contact?success=true');
+});
+
+// Thank you page route
 router.get('/thank-you', (req, res) => {
   res.render('thank-you', {
     title: 'Thank You - Message Received',
