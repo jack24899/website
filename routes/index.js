@@ -18,4 +18,24 @@ router.get('/about', (req, res) => {
   });
 });
 
+// Contact page route - GET
+router.get('/contact', (req, res) => {
+    res.render('contact', {
+      title: 'My Website - Contact',
+      layout: 'main'
+    });
+  });
+  
+  // Contact form submission - POST
+  router.post('/contact', (req, res) => {
+    // Here you would normally process the form data
+    // For example, send an email or save to database
+    const { name, email, subject, message } = req.body;
+    
+    console.log('Contact form submission:', { name, email, subject, message });
+    
+    // For now, just redirect back to the contact page with a success parameter
+    res.redirect('/contact?success=true');
+  });
+
 module.exports = router;
