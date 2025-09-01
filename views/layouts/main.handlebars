@@ -5,35 +5,408 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
   
-  <!-- Tailwind CSS via CDN -->
+  <!-- Tailwind CSS via CDN - Consider downloading for production -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts - Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Custom styles - can override or add to Tailwind if needed -->
+  <!-- Self-contained styles that won't break -->
   <style>
+    /* Import Google Fonts with fallbacks */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      /* Color palette */
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --secondary: #6366f1;
+      --accent: #10b981;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --text-light: #9ca3af;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --bg-tertiary: #f3f4f6;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg-secondary);
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Custom button styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-white {
+      background-color: white;
+      color: var(--primary);
+      border: 2px solid transparent;
+    }
+    
+    .btn-white:hover {
+      background-color: var(--bg-tertiary);
+      transform: translateY(-1px);
+    }
+    
+    /* Card components */
+    .card {
+      background-color: var(--bg-primary);
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Navigation styles */
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--accent);
+    }
+    
+    /* Icon replacements using Unicode symbols and CSS */
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+    
+    .icon-home::before { content: "🏠"; }
+    .icon-user::before { content: "👤"; }
+    .icon-mail::before { content: "✉️"; }
+    .icon-phone::before { content: "📞"; }
+    .icon-location::before { content: "📍"; }
+    .icon-github::before { content: "⚡"; }
+    .icon-linkedin::before { content: "💼"; }
+    .icon-code::before { content: "💻"; }
+    .icon-database::before { content: "🗄️"; }
+    .icon-web::before { content: "🌐"; }
+    .icon-blockchain::before { content: "🔗"; }
+    .icon-speed::before { content: "⚡"; }
+    .icon-check::before { content: "✅"; }
+    .icon-arrow-right::before { content: "→"; }
+    .icon-external::before { content: "↗"; }
+    .icon-search::before { content: "🔍"; }
+    .icon-send::before { content: "📤"; }
+    .icon-menu::before { content: "☰"; }
+    .icon-road::before { content: "🛤️"; }
+    .icon-graduation::before { content: "🎓"; }
+    .icon-briefcase::before { content: "💼"; }
+    .icon-star::before { content: "⭐"; }
+    .icon-laptop::before { content: "💻"; }
+    
+    /* Gradient backgrounds */
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     }
     
     .gradient-text {
       background: linear-gradient(90deg, #f3f3f3, #ffffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
-    .gradient-bg {
-      background: linear-gradient(135deg, #3490dc 0%, #6366f1 100%);
+    /* Utility classes */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
+    
+    .text-center { text-align: center; }
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+    
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    
+    .mt-4 { margin-top: 1rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mt-8 { margin-top: 2rem; }
+    
+    .p-4 { padding: 1rem; }
+    .p-6 { padding: 1.5rem; }
+    .p-8 { padding: 2rem; }
+    
+    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+    .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+    .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+    
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+    
+    .rounded { border-radius: 0.375rem; }
+    .rounded-lg { border-radius: 0.5rem; }
+    .rounded-xl { border-radius: 0.75rem; }
+    .rounded-full { border-radius: 50%; }
+    
+    /* Grid system */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .flex-wrap { flex-wrap: wrap; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .space-x-2 > * + * { margin-left: 0.5rem; }
+    .space-x-4 > * + * { margin-left: 1rem; }
+    .space-x-8 > * + * { margin-left: 2rem; }
+    .space-y-4 > * + * { margin-top: 1rem; }
+    .space-y-6 > * + * { margin-top: 1.5rem; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    .gap-8 { gap: 2rem; }
+    
+    /* Responsive design */
+    @media (min-width: 768px) {
+      .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .md\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .md\\:flex { display: flex; }
+      .md\\:w-1\\/3 { width: 33.333333%; }
+      .md\\:w-2\\/3 { width: 66.666667%; }
+      .md\\:flex-row { flex-direction: row; }
+      .md\\:mb-0 { margin-bottom: 0; }
+      .md\\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+      .md\\:text-5xl { font-size: 3rem; line-height: 1; }
+      .md\\:col-span-2 { grid-column: span 2 / span 2; }
+    }
+    
+    @media (min-width: 1024px) {
+      .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    
+    /* Form styles */
+    .form-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    
+    /* Progress bars */
+    .progress-bar {
+      width: 100%;
+      height: 0.5rem;
+      background-color: var(--bg-tertiary);
+      border-radius: 0.25rem;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    /* Social links with better styling */
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      background-color: var(--bg-tertiary);
+      border-radius: 50%;
+      text-decoration: none;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      font-size: 1.25rem;
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    @media (max-width: 767px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu-button {
+        display: block;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .mobile-menu-button {
+        display: none;
+      }
+      
+      .desktop-nav {
+        display: flex !important;
+      }
+    }
+    
+    /* Typography */
+    .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+    .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+    .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+    .text-5xl { font-size: 3rem; line-height: 1; }
+    .text-6xl { font-size: 3.75rem; line-height: 1; }
+    .font-bold { font-weight: 700; }
+    .font-semibold { font-weight: 600; }
+    .font-medium { font-weight: 500; }
+    
+    /* Colors */
+    .text-white { color: white; }
+    .text-gray-600 { color: #4b5563; }
+    .text-gray-700 { color: #374151; }
+    .text-gray-800 { color: #1f2937; }
+    .text-blue-600 { color: var(--primary); }
+    .text-blue-800 { color: var(--primary-hover); }
+    
+    /* Backgrounds */
+    .bg-white { background-color: white; }
+    .bg-gray-100 { background-color: #f3f4f6; }
+    .bg-gray-800 { background-color: #1f2937; }
+    .bg-blue-600 { background-color: var(--primary); }
+    .bg-blue-700 { background-color: var(--primary-hover); }
+    
+    /* Sizing */
+    .w-full { width: 100%; }
+    .h-48 { height: 12rem; }
+    .max-w-2xl { max-width: 42rem; }
+    .max-w-4xl { max-width: 56rem; }
+    .max-w-5xl { max-width: 64rem; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .min-h-screen { min-height: 100vh; }
+    .flex-grow { flex-grow: 1; }
+    
+    /* Positioning */
+    .sticky { position: sticky; }
+    .top-0 { top: 0; }
+    .z-50 { z-index: 50; }
+    .relative { position: relative; }
+    .absolute { position: absolute; }
+    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+    
+    /* Borders and shadows */
+    .shadow-md { box-shadow: var(--shadow-md); }
+    .shadow-lg { box-shadow: var(--shadow-lg); }
+    .border-t { border-top-width: 1px; }
+    .border-gray-700 { border-color: #374151; }
+    
+    /* Text utilities */
+    .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+    .text-xs { font-size: 0.75rem; line-height: 1rem; }
+    
+    /* Hidden utilities */
+    .hidden { display: none; }
   </style>
 </head>
-<body class="bg-gray-200 text-gray-800 flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
   <!-- Navigation -->
   <header class="bg-gray-800 shadow-md sticky top-0 z-50">
     <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -42,26 +415,26 @@
       </div>
       
       <!-- Mobile menu button -->
-      <div class="md:hidden">
-        <button id="mobile-menu-button" class="p-2 rounded focus:outline-none focus:ring">
-          <i class="fas fa-bars text-xl"></i>
+      <div class="mobile-menu-button">
+        <button id="mobile-menu-button" class="p-2 rounded focus:outline-none focus:ring text-white">
+          <span class="icon icon-menu"></span>
         </button>
       </div>
       
       <!-- Desktop Navigation -->
-      <ul class="hidden md:flex space-x-8">
-        <li><a href="/" class="text-white hover:text-blue-600 font-medium transition duration-300">Home</a></li>
-        <li><a href="/about" class="text-white hover:text-blue-600 font-medium transition duration-300">About</a></li>
-        <li><a href="/contact" class="text-white hover:text-blue-600 font-medium transition duration-300">Contact</a></li>
+      <ul class="desktop-nav hidden md:flex space-x-8">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
     
-    <!-- Mobile Navigation Menu (hidden by default) -->
-    <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-lg absolute w-full">
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="mobile-menu bg-gray-800">
       <ul class="px-4 py-2">
-        <li><a href="/" class="block py-2 hover:text-blue-600 transition duration-300">Home</a></li>
-        <li><a href="/about" class="block py-2 hover:text-blue-600 transition duration-300">About</a></li>
-        <li><a href="/contact" class="block py-2 hover:text-blue-600 transition duration-300">Contact</a></li>
+        <li><a href="/" class="nav-link py-2"><span class="icon icon-home"></span>Home</a></li>
+        <li><a href="/about" class="nav-link py-2"><span class="icon icon-user"></span>About</a></li>
+        <li><a href="/contact" class="nav-link py-2"><span class="icon icon-mail"></span>Contact</a></li>
       </ul>
     </div>
   </header>
@@ -80,15 +453,15 @@
           <p class="text-gray-400 text-sm">Software Engineer | Web Developer</p>
         </div>
         
-        <div class="flex space-x-4">
-          <a href="https://github.com/jack24899" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-            <i class="fab fa-github text-xl"></i>
+        <div class="social-links">
+          <a href="https://github.com/jack24899" target="_blank" class="social-link">
+            <span style="font-weight: 600; font-family: monospace;">{ }</span>
           </a>
-          <a href="https://www.linkedin.com/in/jack-male-21369a257/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-            <i class="fab fa-linkedin text-xl"></i>
+          <a href="https://www.linkedin.com/in/jack-male-21369a257/" target="_blank" class="social-link">
+            <span style="font-weight: 600; font-size: 0.9rem;">in</span>
           </a>
-          <a href="mailto:jdev8602@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
-            <i class="fas fa-envelope text-xl"></i>
+          <a href="mailto:jdev8602@gmail.com" class="social-link">
+            <span style="font-weight: 600;">@</span>
           </a>
         </div>
       </div>
@@ -102,16 +475,17 @@
   <!-- reCAPTCHA v2 Script -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   
-  <!-- Your custom JavaScript -->
+  <!-- JavaScript for mobile menu and forms -->
   <script>
-    // Mobile menu toggle
     document.addEventListener('DOMContentLoaded', () => {
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
       
-      mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('active');
+        });
+      }
       
       // reCAPTCHA validation
       const contactForm = document.querySelector('.contact-form');

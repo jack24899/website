@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto">
+<div class="max-w-5xl mx-auto contact">
   <!-- Contact Hero -->
   <div class="mb-12 bg-white shadow-lg rounded-xl overflow-hidden">
     <div class="p-8 text-center">
@@ -14,33 +14,32 @@
     <div class="md:col-span-2 bg-white shadow-lg rounded-xl overflow-hidden">
       <div class="p-8">
         <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <i class="fas fa-paper-plane mr-3 text-blue-600"></i> Send a Message
+          <div class="flex items-center justify-center">
+            <div style="width: 8px; height: 6px; border: 1px solid white; border-radius: 1px;"></div>
+          </div>
+          Send a Message
         </h2>
         
         <!-- Formspree Form -->
         <form class="contact-form space-y-6" action="https://formspree.io/f/mvgageon" method="POST">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-            <input type="text" id="name" name="name" required
-                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-300">
           </div>
           
           <div>
             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" id="email" name="email" required
-                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-300">
           </div>
           
           <div>
             <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-            <input type="text" id="subject" name="subject" required
-                   class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-300">
           </div>
           
           <div>
             <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-            <textarea id="message" name="message" rows="5" required
-                      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-300"></textarea>
+            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-300"></textarea>
           </div>
           
           <!-- Anti-spam honeypot -->
@@ -52,8 +51,8 @@
           </div>
           
           <div>
-            <button type="submit" class="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-medium rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300">
-              Send Message <i class="fas fa-paper-plane ml-2"></i>
+            <button type="submit" class="bg-blue-600 text-white hover:bg-blue-700 font-medium px-6 py-3 rounded-md shadow-md transition duration-300">
+              Send Message →
             </button>
           </div>
         </form>
@@ -64,20 +63,23 @@
     <div class="bg-white shadow-lg rounded-xl overflow-hidden">
       <div class="p-8">
         <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <i class="fas fa-address-card mr-3 text-blue-600"></i> Contact Info
+          <div class="flex items-center justify-center">
+            <div style="width: 8px; height: 8px; border: 1px solid white; border-radius: 50%;"></div>
+          </div>
+          Contact Info
         </h2>
         
         <div class="space-y-6">
           <!-- Email -->
           <div class="flex items-start">
             <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
-              <i class="fas fa-envelope text-blue-600"></i>
+              <span class="text-blue-600 font-weight-600">@</span>
             </div>
-            <div class="ml-4">
+            <div style="margin-left: 1rem;">
               <h3 class="text-sm font-medium text-gray-900">Email</h3>
               <p class="mt-1 text-sm text-gray-600">jdev8602@gmail.com</p>
               <a href="mailto:jdev8602@gmail.com" class="mt-2 inline-flex text-sm text-blue-600 hover:text-blue-800">
-                Send an email <i class="fas fa-arrow-right ml-1"></i>
+                Send an email →
               </a>
             </div>
           </div>
@@ -85,13 +87,13 @@
           <!-- LinkedIn -->
           <div class="flex items-start">
             <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
-              <i class="fab fa-linkedin-in text-blue-600"></i>
+              <span class="text-blue-600 font-weight-600" style="font-size: 0.9rem;">in</span>
             </div>
-            <div class="ml-4">
+            <div style="margin-left: 1rem;">
               <h3 class="text-sm font-medium text-gray-900">LinkedIn</h3>
               <p class="mt-1 text-sm text-gray-600">linkedin.com/in/jack-male</p>
               <a href="https://www.linkedin.com/in/jack-male-21369a257/" target="_blank" class="mt-2 inline-flex text-sm text-blue-600 hover:text-blue-800">
-                Connect with me <i class="fas fa-arrow-right ml-1"></i>
+                Connect with me →
               </a>
             </div>
           </div>
@@ -99,13 +101,13 @@
           <!-- GitHub -->
           <div class="flex items-start">
             <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full">
-              <i class="fab fa-github text-blue-600"></i>
+              <span class="text-blue-600 font-weight-600" style="font-family: monospace;">{ }</span>
             </div>
-            <div class="ml-4">
+            <div style="margin-left: 1rem;">
               <h3 class="text-sm font-medium text-gray-900">GitHub</h3>
               <p class="mt-1 text-sm text-gray-600">github.com/jack24899</p>
               <a href="https://github.com/jack24899" target="_blank" class="mt-2 inline-flex text-sm text-blue-600 hover:text-blue-800">
-                See my projects <i class="fas fa-arrow-right ml-1"></i>
+                See my projects →
               </a>
             </div>
           </div>
@@ -121,47 +123,45 @@
       
       <div class="space-y-4">
         <!-- FAQ Item -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none">
+        <div class="border border-gray-200 rounded-lg overflow-hidden faq-item">
+          <button class="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none faq-button">
             <span class="font-medium">What services do you offer?</span>
-            <i class="fas fa-chevron-down text-gray-500"></i>
+            <span class="faq-icon">▼</span>
           </button>
-          <div class="p-4 border-t border-gray-200">
-            <p class="text-gray-600">I offer web development services, including frontend development, backend services, and database design. I specialize in Node.js and Express applications with a focus on performance and user experience.
-                I am always expanding my skillset, so feel free to ask about specific technologies or frameworks.</p>
-            </p>
+          <div class="p-4 border-t border-gray-200 faq-content">
+            <p class="text-gray-600">I offer web development services, including frontend development, backend services, and database design. I specialize in Node.js and Express applications with a focus on performance and user experience. I am always expanding my skillset, so feel free to ask about specific technologies or frameworks.</p>
           </div>
         </div>
         
         <!-- FAQ Item -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none">
+        <div class="border border-gray-200 rounded-lg overflow-hidden faq-item">
+          <button class="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none faq-button">
             <span class="font-medium">How quickly can you respond to inquiries?</span>
-            <i class="fas fa-chevron-down text-gray-500"></i>
+            <span class="faq-icon">▼</span>
           </button>
-          <div class="p-4 border-t border-gray-200">
+          <div class="p-4 border-t border-gray-200 faq-content" style="display: none;">
             <p class="text-gray-600">I typically respond to all inquiries within 24-48 hours during weekdays. For urgent matters, please indicate so in your message subject.</p>
           </div>
         </div>
 
         <!-- FAQ Item -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none">
+        <div class="border border-gray-200 rounded-lg overflow-hidden faq-item">
+          <button class="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none faq-button">
             <span class="font-medium">Where are you based?</span>
-            <i class="fas fa-chevron-down text-gray-500"></i>
+            <span class="faq-icon">▼</span>
           </button>
-          <div class="p-4 border-t border-gray-200">
+          <div class="p-4 border-t border-gray-200 faq-content" style="display: none;">
             <p class="text-gray-600">Northern Ireland, specifically Belfast. However I am open to relocation if the role is right!</p>
           </div>
         </div>
         
         <!-- FAQ Item -->
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none">
+        <div class="border border-gray-200 rounded-lg overflow-hidden faq-item">
+          <button class="w-full flex justify-between items-center p-4 text-left bg-gray-50 hover:bg-gray-100 focus:outline-none faq-button">
             <span class="font-medium">Are you available for remote work?</span>
-            <i class="fas fa-chevron-down text-gray-500"></i>
+            <span class="faq-icon">▼</span>
           </button>
-          <div class="p-4 border-t border-gray-200">
+          <div class="p-4 border-t border-gray-200 faq-content" style="display: none;">
             <p class="text-gray-600">Yes, I am available for remote work and have experience collaborating with distributed teams using modern tools and communication platforms.</p>
           </div>
         </div>
@@ -173,27 +173,23 @@
 <script>
   // FAQ toggle functionality
   document.addEventListener('DOMContentLoaded', () => {
-    const faqButtons = document.querySelectorAll('.border.border-gray-200 button');
+    const faqButtons = document.querySelectorAll('.faq-button');
     
     faqButtons.forEach(button => {
       button.addEventListener('click', () => {
-        // Toggle the icon
-        const icon = button.querySelector('i');
-        icon.classList.toggle('fa-chevron-down');
-        icon.classList.toggle('fa-chevron-up');
+        const faqItem = button.closest('.faq-item');
+        const content = faqItem.querySelector('.faq-content');
+        const icon = button.querySelector('.faq-icon');
         
         // Toggle the content visibility
-        const content = button.nextElementSibling;
-        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        if (content.style.display === 'none') {
+          content.style.display = 'block';
+          icon.textContent = '▲';
+        } else {
+          content.style.display = 'none';
+          icon.textContent = '▼';
+        }
       });
-    });
-    
-    // Hide all FAQ content initially except the first one
-    const faqContents = document.querySelectorAll('.border.border-gray-200 > div');
-    faqContents.forEach((content, index) => {
-      if (index > 0) {
-        content.style.display = 'none';
-      }
     });
   });
 </script>

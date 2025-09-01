@@ -5,7 +5,7 @@ const path = require('path');
 
 // Initialize Express
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Set up Handlebars as the view engine
 app.engine('handlebars', engine());

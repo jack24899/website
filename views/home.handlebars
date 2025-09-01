@@ -1,8 +1,8 @@
 <!-- Hero Section -->
 <section class="bg-white shadow-lg rounded-xl overflow-hidden mb-12">
   <div class="relative">
-    <!-- Hero background with gradient overlay -->
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-600 opacity-90"></div>
+    <!-- Hero background with gradient -->
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);"></div>
     
     <!-- Hero content -->
     <div class="relative py-16 px-6 sm:px-12 text-center text-white z-10">
@@ -21,16 +21,22 @@
   <div class="flex items-center justify-between mb-8">
     <h2 class="text-2xl md:text-3xl font-bold">Featured Projects</h2>
     <a href="#" class="text-blue-600 hover:text-blue-800 flex items-center transition duration-300">
-      View All <i class="fas fa-arrow-right ml-2"></i>
+      View All <span style="margin-left: 0.5rem;">→</span>
     </a>
   </div>
   
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- Project Card 1 -->
+    <!-- Project Card 1 -->
     <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-      <div class="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
-        <i class="fas fa-database text-white text-5xl"></i>
+      <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);">
+        <div class="w-16 h-16 bg-white bg-opacity-30 rounded-lg flex items-center justify-center">
+          <div class="w-8 h-8 bg-white rounded" style="position: relative;">
+            <div style="position: absolute; top: 2px; left: 2px; right: 2px; height: 2px; background: #a855f7;"></div>
+            <div style="position: absolute; top: 6px; left: 2px; right: 2px; height: 2px; background: #a855f7;"></div>
+            <div style="position: absolute; top: 10px; left: 2px; right: 2px; height: 2px; background: #a855f7;"></div>
+          </div>
+        </div>
       </div>
       <div class="p-6">
         <div class="flex justify-between items-start">
@@ -42,22 +48,26 @@
           <div class="flex space-x-2">
             <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">MySQL</span>
           </div>
-          <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-external-link-alt"></i></a>
+          <a href="https://github.com/jack24899" target="_blank" class="social-link">
+            <span style="font-weight: 600; font-family: monospace;">{ }</span>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- Project Card 2 -->
     <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-      <div class="h-48 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center">
-        <i class="fas fa-code text-white text-5xl"></i>
+      <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);">
+        <div class="w-16 h-16 bg-white bg-opacity-30 rounded-lg flex items-center justify-center">
+          <div class="text-white text-2xl font-mono">&lt;/&gt;</div>
+        </div>
       </div>
       <div class="p-6">
         <div class="flex justify-between items-start">
           <h3 class="text-xl font-bold mb-2">Academic Web App</h3>
           <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Web</span>
         </div>
-        <p class="text-gray-600 mb-4"> Academic progression monitoring web app for students and admin. </p>
+        <p class="text-gray-600 mb-4">Academic progression monitoring web app for students and admin.</p>
         <div class="flex justify-between items-center">
           <div class="flex space-x-2">
             <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Node.js</span>
@@ -66,28 +76,39 @@
             <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">HTML</span>
             <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Pico</span>
           </div>
-          <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-external-link-alt"></i></a>
+          <a href="https://github.com/jack24899" target="_blank" class="social-link">
+            <span style="font-weight: 600; font-family: monospace;">{ }</span>
+          </a>
         </div>
       </div>
     </div>
     
     <!-- Project Card 3 -->
     <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-      <div class="h-48 bg-gradient-to-r from-green-400 to-cyan-500 flex items-center justify-center">
-        <i class="fas fa-cubes text-white text-5xl"></i>
+      <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);">
+        <div class="w-16 h-16 bg-white bg-opacity-30 rounded-lg flex items-center justify-center">
+          <div class="w-8 h-8 relative">
+            <div class="w-6 h-6 border-2 border-white rounded-full absolute top-0 left-0"></div>
+            <div class="w-6 h-6 border-2 border-white rounded-full absolute top-2 left-2"></div>
+            <div class="w-2 h-2 bg-white rounded-full absolute top-1 left-1"></div>
+            <div class="w-2 h-2 bg-white rounded-full absolute top-3 left-3"></div>
+          </div>
+        </div>
       </div>
       <div class="p-6">
         <div class="flex justify-between items-start">
-          <h3 class="text-xl font-bold mb-2">Project 3</h3>
+          <h3 class="text-xl font-bold mb-2">Blockchain Project</h3>
           <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Blockchain</span>
         </div>
-        <p class="text-gray-600 mb-4">An innovative blockchain project showing your expertise in distributed ledger technologies.</p>
+        <p class="text-gray-600 mb-4">An innovative blockchain project showing expertise in distributed ledger technologies.</p>
         <div class="flex justify-between items-center">
           <div class="flex space-x-2">
             <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Solidity</span>
             <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Web3.js</span>
           </div>
-          <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-external-link-alt"></i></a>
+          <a href="https://github.com/jack24899" target="_blank" class="social-link">
+            <span style="font-weight: 600; font-family: monospace;">{ }</span>
+          </a>
         </div>
       </div>
     </div>
@@ -154,7 +175,7 @@
         </div>
       </div>
 
-            <div class="mb-4">
+      <div class="mb-4">
         <div class="flex justify-between mb-1">
           <span class="font-medium">Java</span>
           <span>85%</span>
@@ -168,7 +189,7 @@
 </section>
 
 <!-- Call to Action -->
-<section class="gradient-bg rounded-xl text-white p-8 text-center">
+<section class="rounded-xl text-white p-8 text-center" style="background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);">
   <h2 class="text-2xl md:text-3xl font-bold mb-4">Interested in working together?</h2>
   <p class="text-xl mb-8 max-w-2xl mx-auto">I'm always open to discussing new projects and opportunities.</p>
   <a href="/contact" class="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-3 rounded-md shadow-md transition duration-300">Get in Touch</a>
