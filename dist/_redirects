@@ -1,0 +1,5 @@
+# Handle 404s
+/*    /404.html   404
+
+# Handle thank-you page
+/thank-you    /thank-you.html   200
