@@ -98,8 +98,3 @@ fs.writeFileSync(path.join(outputDir, '_redirects'), redirectsContent.trim());
 console.log('Generated: _redirects');
 
 console.log('\nStatic site generated successfully in ./dist directory!');
-console.log('\nTo deploy to Netlify:');
-console.log('1. Upload the ./dist folder to your GitHub repo');
-console.log('2. Connect your repo to Netlify');
-console.log('3. Set build directory to "dist"');
-console.log('4. Deploy!');
